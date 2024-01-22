@@ -32,7 +32,6 @@ new Vue({
         },
         async addUser() {
             try {
-                // Предположим, что у вас есть локальный массив usersData
                 const newUser = {
                     id: this.users.length + 1, //Cоздаем уникальный ID
                     first_name: this.newUser.name,
@@ -60,13 +59,13 @@ new Vue({
         showUserDetails(user) {
             this.selectedUser = user;
             this.$nextTick(() => {
-                document.body.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden'; // Запрещаем прокрутку фона
                 document.querySelector('.modal').style.display = 'block';
             });
         },
         closeDetails() {
             this.selectedUser = null;
-            document.body.style.overflow = ''; // Разрешить прокрутку фона
+            document.body.style.overflow = ''; // Разрешаем прокрутку фона после закрытия модального окна
             document.querySelector('.modal').style.display = 'none';
         },
         filterUsers() {
